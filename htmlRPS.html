@@ -8,19 +8,67 @@
 
 <script>
 
-
+// This function first randomly selects a number between 0-2. Then depending on which number is selected 
+// the code spits out the computer's choice of R/P/S. 
 function computerPlay() {
   let cpuChoice = Math.floor(Math.random() * 3);
   if (cpuChoice === 0) {
-    console.log("Rock");
+    return "Rock";
   } else if (cpuChoice === 1) {
-    console.log("Paper");
+    return "Paper";
   } else if (cpuChoice === 2) {
-    console.log("Scissors");
+    return "Scissors";
   } else {
-    console.log("Error!")
+    console.log("Error!");
   }
 }
+
+// Next I will attempt to create a function that simulates a single round of RPS vs a human.
+// Code doesnt work if capitalization isnt the same or if i type in the wrong thing. Needs fixing
+
+
+let humanPlay = prompt("Please make a selection. Rock Paper or Scissors");
+
+const computerSelection = computerPlay()
+const playerSelection = humanPlay
+console.log(playerSelection, computerSelection)
+
+
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    return "It's a tie. It's getting tense!";
+  } 
+  // For a Human rock victory
+  if (playerSelection = "rock") {
+    if (computerSelection === "Scissors") {
+      return "You win this round because good ol rock crushes scissors!";
+    }
+     else {
+      // For a computer Paper Victory
+      return "Oh paper beats rock you lose!";
+     }
+  }
+  // The paper decision process
+  if (playerSelection = "paper") {
+    if (computerSelection === "Rock") {
+      return "You win this round because paper beats rock!";
+    }
+    else {
+      return "Oh no you lost because paper loses to scissors."
+    }
+  }
+  // The scissors process
+  if (playerSelection = "scissors") {
+    if (computerSelection === "Paper") {
+      return "You win because Scissors cuts through Paper!"
+    }
+    else {
+      return "Oh no you lost because Rock crushes Scissors!"
+    }
+  } 
+}
+
+
 
 
 </script>
