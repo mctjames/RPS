@@ -13,11 +13,11 @@
 function computerPlay() {
   let cpuChoice = Math.floor(Math.random() * 3);
   if (cpuChoice === 0) {
-    return "Rock";
+    return "rock";
   } else if (cpuChoice === 1) {
-    return "Paper";
+    return "paper";
   } else if (cpuChoice === 2) {
-    return "Scissors";
+    return "scissors";
   } else {
     console.log("Error!");
   }
@@ -26,49 +26,51 @@ function computerPlay() {
 // Next I will attempt to create a function that simulates a single round of RPS vs a human.
 // Code doesnt work if capitalization isnt the same or if i type in the wrong thing. Needs fixing
 
-
+// creates an alert that asks the player to input their selection.
 let humanPlay = prompt("Please make a selection. Rock Paper or Scissors");
 
+// links the computer play function to the computers selection so that we can get a new computer choice when required. 
 const computerSelection = computerPlay()
-const playerSelection = humanPlay
+const playerSelection = humanPlay.toLowerCase();
+
+// line for testing. Remember get rid of this at some point before finishing. 
 console.log(playerSelection, computerSelection)
 
-
+// This function takes the two choices one by the human and one by the computer and then evaluates them. 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "It's a tie. It's getting tense!";
   } 
   // For a Human rock victory
-  if (playerSelection = "rock") {
-    if (computerSelection === "Scissors") {
+  if (playerSelection === "rock") {
+    if (computerSelection === "scissors") {
       return "You win this round because good ol rock crushes scissors!";
     }
-     else {
-      // For a computer Paper Victory
+     if (computerSelection === "paper") {
       return "Oh paper beats rock you lose!";
      }
   }
-  // The paper decision process
-  if (playerSelection = "paper") {
-    if (computerSelection === "Rock") {
+  // The paper process
+  if (playerSelection === "paper") {
+    if (computerSelection === "rock") {
       return "You win this round because paper beats rock!";
     }
-    else {
-      return "Oh no you lost because paper loses to scissors."
+    if (computerSelection === "scissors") {
+      return "Oh no you lost because paper cant stand up to scissors."
     }
   }
   // The scissors process
-  if (playerSelection = "scissors") {
-    if (computerSelection === "Paper") {
+  if (playerSelection === "scissors") {
+    if (computerSelection === "paper") {
       return "You win because Scissors cuts through Paper!"
     }
-    else {
+    if (computerSelection === "rock") {
       return "Oh no you lost because Rock crushes Scissors!"
     }
-  } 
+  } else {
+    return "Error! Are you trying to bring a knife to a legitimately sanctioned RPS match? Go back and try again with rock paper or scissors."
+  }
 }
-
-
 
 
 </script>
